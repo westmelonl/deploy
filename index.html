@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>福利商品收银台</title>
+  <link rel="stylesheet" href="./css/fuliCashier.css">
+</head>
+<body>
+  <div class="fulicashier-wrapper">
+    <div class="fuli-cashier">
+      <div class="fuli-cashier-return">
+        <img src="./images/fuli_return.png" alt="">
+      </div>
+      <div class="fuli-cashier-word">福利商品收银台</div>
+    </div>
+    <div class="fulicashier-head">
+      <div class="fulicashier-head-word">
+        <span>需支付：</span>
+        <span class="fulicashier-head-word-price">￥123.00</span>
+      </div>
+    </div>
+    <div class="fulicashier-payment-type">
+      <div class="fulicashier-payment-type-left">
+        <div class="fulicashier-payment-type-img">
+          <img src="./images/balance.png" alt="">
+        </div>
+        <div class="fulicashier-payment-type-word">余额支付</div>
+      </div>
+      <div class="fulicashier-payment-type-check">
+        <input type="radio" checked />
+      </div>
+    </div>
+    <div class="confirm-btn">确认支付</div>
+
+    <!-- 支付密码弹框 -->
+    <div class="fulicashier-mask-bg"></div>
+    <div class="fulicashier-mask">
+      <div class="fulicashier-mask-head">
+        <div class="fulicashier-mask-head-img">
+          <img src="./images/close_icon.png" alt="">
+        </div>
+        <div class="fulicashier-mask-head-word">请输入密码</div>
+      </div>
+      <div class="fulicashier-mask-content">
+        <div class="fulicashier-mask-price">￥79.00</div>
+        <div class="fulicashier-mask-input-wrapper">
+          <input type="password" maxlength="1" autofocus class="fulicashier-mask-input" onkeyup="focusNextInput(this)" name="" id="">
+          <input type="password" maxlength="1" class="fulicashier-mask-input" onkeyup="focusNextInput(this)" name="" id="">
+          <input type="password" maxlength="1" class="fulicashier-mask-input" onkeyup="focusNextInput(this)" name="" id="">
+          <input type="password" maxlength="1" class="fulicashier-mask-input" onkeyup="focusNextInput(this)" name="" id="">
+          <input type="password" maxlength="1" class="fulicashier-mask-input" onkeyup="focusNextInput(this)" name="" id="">
+          <input type="password" maxlength="1" class="fulicashier-mask-input" onkeyup="focusNextInput(this)" name="" id="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./lib/jquery.js"></script>
+  <script src="./lib/flexible.js"></script>
+  <script src="./js/fuliCashier.js"></script>
+</body>
+</html>
