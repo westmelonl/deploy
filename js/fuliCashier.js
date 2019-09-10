@@ -1,12 +1,17 @@
+var val = '';
 $(function() {
 
   $('.confirm-btn').on('click', function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').show();
     $('.fulicashier-mask-input-wrapper input:eq(0)').trigger("click").focus();
+    $(".fulicashier-mask-input").val("");
+    val = "";
   });
 
-  $('.fulicashier-mask-bg, .fulicashier-mask-head-img').on('click', function() {
+  $('.fulicashier-mask-head-img').on('click', function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').hide();
+    $(".fulicashier-mask-input").val("");
+    val = "";
   });
 
   // init();
@@ -21,7 +26,6 @@ $(function() {
   }
 });
 
-var val = '';
 function focusNextInput(thisInput) {
   var inputs = document.querySelectorAll('.fulicashier-mask-input');
   var e = event || window.event || arguments.callee.caller.arguments[0];

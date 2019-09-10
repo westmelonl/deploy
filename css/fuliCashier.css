@@ -109,7 +109,7 @@ body{
   background-size: 100% 100%;
   position: absolute;
   top: .33rem;
-  left: 0;
+  left: -1px;
 }
 
 .confirm-btn{
