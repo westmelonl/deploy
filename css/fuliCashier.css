@@ -103,13 +103,13 @@ body{
 .fulicashier-payment-type-check>input:checked::after {
   display: inline-block;
   content: "";
-  width: .36rem;
-  height: .36rem;
+  width: .37rem;
+  height: .37rem;
   background: url(../images/input_check.png) no-repeat;
   background-size: 100% 100%;
   position: absolute;
   top: .33rem;
-  left: -1px;
+  left: 0;
 }
 
 .confirm-btn{
@@ -243,4 +243,39 @@ body{
 
 .fulicashier-mask-input:last-child{
   border-right: none;
+}
+
+.fulicashier-mask-input-hidden{
+  position: fixed;
+  bottom: -100%;
+}
+
+/* 模拟光标 */
+
+.cursor {
+  width: 1px;
+  height: 15px;
+  background-color: rgba(0, 0, 0, .3);
+  animation: focus 1s infinite;
+}
+
+/* 光标动画 */
+
+@keyframes focus {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+.fulicashier-mask-p{
+  width: 16.6%;
+  height: 100%;
+  border-right: 1px solid #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

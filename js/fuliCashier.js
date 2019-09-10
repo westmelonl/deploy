@@ -3,7 +3,7 @@ $(function() {
 
   $('.confirm-btn').on('click', function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').show();
-    $('.fulicashier-mask-input-wrapper input:eq(0)').trigger("click").focus();
+    $('.fulicashier-mask-input-hidden').trigger("click").focus();
     $(".fulicashier-mask-input").val("");
     val = "";
   });
@@ -12,6 +12,10 @@ $(function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').hide();
     $(".fulicashier-mask-input").val("");
     val = "";
+  });
+
+  $('.fulicashier-mask-input-hidden').on('keyup', function () {
+    console.log($(this).val());
   });
 
   // init();
