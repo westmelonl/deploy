@@ -237,6 +237,8 @@ body{
   border-right: 1px solid #999;
   outline: none;
   text-align: center;
+  -webkit-text-security:disc;
+  text-security:disc; /*使用指定形状代替文字显示 circle圆圈 disc 圆形 square 正方形*/
 }
 
 .fulicashier-mask-input:last-child{

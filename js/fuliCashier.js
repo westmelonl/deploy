@@ -9,6 +9,16 @@ $(function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').hide();
   });
 
+  // init();
+  function init(){
+    var x = document.querySelectorAll('.fulicashier-mask-input');
+    var style = window.getComputedStyle(x);
+    if(style.webkitTextSecurity){
+        //do nothing
+    }else{
+        x.setAttribute("type","password");
+    }
+  }
 });
 
 var val = '';
@@ -37,3 +47,4 @@ function focusNextInput(thisInput) {
     $(".fulicashier-mask-input").eq(0).focus();
   }
 }
+
