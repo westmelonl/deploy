@@ -257,6 +257,7 @@ body{
   height: 15px;
   background-color: rgba(0, 0, 0, .3);
   animation: focus 1s infinite;
+  display: none;
 }
 
 /* 光标动画 */
@@ -278,4 +279,12 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.fulicashier-mask-p .ver{
+  width: .06rem;
+  height: .06rem;
+  border-radius: 50%;
+  background-color: #000;
+  display: none;
 }

@@ -1,21 +1,31 @@
 var val = '';
+var num = 0;
 $(function() {
+
+  $('.fulicashier-mask-p:eq(0) .cursor').show();
 
   $('.confirm-btn').on('click', function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').show();
     $('.fulicashier-mask-input-hidden').trigger("click").focus();
-    $(".fulicashier-mask-input").val("");
-    val = "";
+    // $(".fulicashier-mask-input").val("");
+    // val = "";
   });
 
   $('.fulicashier-mask-head-img').on('click', function() {
     $('.fulicashier-mask-bg, .fulicashier-mask').hide();
-    $(".fulicashier-mask-input").val("");
-    val = "";
+    // $(".fulicashier-mask-input").val("");
+    // val = "";
   });
 
   $('.fulicashier-mask-input-hidden').on('keyup', function () {
-    console.log($(this).val());
+    num++;
+    $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+    $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
+    if(num == 6) {
+      $('.fulicashier-mask-p .cursor').hide();
+      val = $(this).val();
+    }
+    console.log(val);
   });
 
   // init();
