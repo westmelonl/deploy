@@ -17,6 +17,11 @@ $(function() {
     // val = "";
   });
 
+  //点击六个小框获取密码框的焦点
+  $('.fulicashier-mask-p').on('click', function() {
+    $('.fulicashier-mask-input-hidden').trigger("click").focus();
+  });
+
   $('.fulicashier-mask-input-hidden').on('keyup', function () {
     var e = event || window.event || arguments.callee.caller.arguments[0];
     if (e.keyCode == 8) {
