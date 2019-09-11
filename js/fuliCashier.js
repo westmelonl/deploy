@@ -19,19 +19,23 @@ $(function() {
 
   $('.fulicashier-mask-input-hidden').on('keyup', function () {
     var e = event || window.event || arguments.callee.caller.arguments[0];
-    num++;
-    $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
-    $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
     if (e.keyCode == 8) {
-      num = 0;
-      $(`.fulicashier-mask-p .ver`).hide();
-      val = '';
-      $(`.fulicashier-mask-p:eq(0) .cursor`).show();
-    }
-    if(num == 6) {
-      $('.fulicashier-mask-p .cursor').hide();
-      val = $(this).val();
-      console.log(val);
+      if(num != 0) {
+        num--;
+        $(`.fulicashier-mask-p:eq(${num}) .ver`).hide();
+        // val = '';
+        $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+      }
+      console.log(num);
+    }else{
+      num++;
+      $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+      $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
+      if(num == 6) {
+        $('.fulicashier-mask-p .cursor').hide();
+        val = $(this).val();
+        console.log(val);
+      }
     }
   });
 
