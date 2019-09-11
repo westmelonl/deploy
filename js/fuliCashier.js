@@ -22,26 +22,39 @@ $(function() {
     $('.fulicashier-mask-input-hidden').trigger("click").focus();
   });
 
+  var reg = /[^\d]/g;
   $('.fulicashier-mask-input-hidden').on('keyup', function () {
+    var str = $(this).val();
+    var count_chin = str.match(reg).length;
+    console.log(count_chin);
     var e = event || window.event || arguments.callee.caller.arguments[0];
-    if (e.keyCode == 8) {
-      if(num != 0) {
-        num--;
-        $(`.fulicashier-mask-p:eq(${num}) .ver`).hide();
-        // val = '';
-        $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
-      }
-      console.log(num);
+    if(!reg.test(str)) {
+      // $(this).val(str.substring(0, count_chin));
+      $(this).val(str.substring(0, count_chin));
     }else{
-      num++;
-      $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
-      $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
-      if(num == 6) {
-        $('.fulicashier-mask-p .cursor').hide();
-        val = $(this).val();
-        console.log(val);
+      if (e.keyCode == 8) {
+        if(num != 0) {
+          num--;
+          $(`.fulicashier-mask-p:eq(${num}) .ver`).hide();
+          // val = '';
+          $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+        }
+        console.log(num);
+      }else{
+        if(num != 6) {
+          num++;
+          console.log(num);
+        }
+        $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+        $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
+        if(num == 6) {
+          $('.fulicashier-mask-p .cursor').hide();
+          val = $(this).val();
+          console.log(val);
+        }
       }
     }
+    
   });
 
   // init();

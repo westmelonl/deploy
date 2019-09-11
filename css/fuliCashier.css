@@ -247,7 +247,8 @@ body{
 
 .fulicashier-mask-input-hidden{
   position: fixed;
-  bottom: -100%;
+  bottom: 0;
+  z-index: 1001
 }
 
 /* 模拟光标 */
