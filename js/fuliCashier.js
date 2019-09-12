@@ -24,37 +24,54 @@ $(function() {
 
   var reg = /[^\d]/g;
   $('.fulicashier-mask-input-hidden').on('keyup', function () {
-    var str = $(this).val();
-    var count_chin = str.match(reg).length;
-    console.log(count_chin);
-    var e = event || window.event || arguments.callee.caller.arguments[0];
-    if(!reg.test(str)) {
-      // $(this).val(str.substring(0, count_chin));
-      $(this).val(str.substring(0, count_chin));
-    }else{
-      if (e.keyCode == 8) {
-        if(num != 0) {
-          num--;
-          $(`.fulicashier-mask-p:eq(${num}) .ver`).hide();
-          // val = '';
-          $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
-        }
-        console.log(num);
+    // console.log($(".fulicashier-mask-input-hidden").val())
+    $(".fulicashier-mask-input-hidden").val($(".fulicashier-mask-input-hidden").val().replace(/[^\d]/g,''))
+    var arr = $(".fulicashier-mask-input-hidden").val().length
+    var arrs = $(".fulicashier-mask-p").length
+    for (let i = 0; i < arr; i++) {
+      if(arr == 0){
+        $('.fulicashier-mask-p:eq(0) .ver').show();
+        $('.fulicashier-mask-p:eq(0) .cursor').hide();
       }else{
-        if(num != 6) {
-          num++;
-          console.log(num);
-        }
-        $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
-        $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
-        if(num == 6) {
-          $('.fulicashier-mask-p .cursor').hide();
-          val = $(this).val();
-          console.log(val);
-        }
+        $(`.fulicashier-mask-p:eq(${i}) .ver`).show();
+        $(`.fulicashier-mask-p:eq(${i}) .cursor`).hide();
       }
     }
+    if(arr == 6){
+      for (let j = 0; j < arr; j++) {
+        $(`.fulicashier-mask-p:eq(${j}) .ver`).show();
+        $(`.fulicashier-mask-p:eq(${j}) .cursor`).hide();
+      }
+    }else{
+      for (let s = arr; s < arrs; s++) {
+        $(`.fulicashier-mask-p:eq(${s}) .ver`).hide();
+        $(`.fulicashier-mask-p:eq(${s}) .cursor`).hide();
+      }
+      $(`.fulicashier-mask-p:eq(${arr}) .ver`).hide();
+      $(`.fulicashier-mask-p:eq(${arr}) .cursor`).show();
+    }
     
+
+
+    var e = event || window.event || arguments.callee.caller.arguments[0];
+    // if (e.keyCode == 8) {
+    //   if(num != 0) {
+    //     num--;
+    //     $(`.fulicashier-mask-p:eq(${num}) .ver`).hide();
+    //     // val = '';
+    //     $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+    //   }
+    //   console.log(num);
+    // }else{
+    //   num++;
+    //   $(`.fulicashier-mask-p:eq(${num}) .cursor`).show().parent('.fulicashier-mask-p').siblings('.fulicashier-mask-p').find('.cursor').hide();
+    //   $(`.fulicashier-mask-p:eq(${num - 1}) .ver`).show();
+    //   if(num == 6) {
+    //     $('.fulicashier-mask-p .cursor').hide();
+    //     val = $(this).val();
+    //     console.log(val);
+    //   }
+    // }
   });
 
   // init();
